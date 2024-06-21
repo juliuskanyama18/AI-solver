@@ -21,6 +21,9 @@ app.get('/', (req, res) => {
   app.get('/_Introduction%20to%20Limits.html', (req, res) => {
     res.sendFile(path.join(__dirname, '_Introduction to Limits.html'));
   });
+  app.get('/limitLaws.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'limitLaws.html'));
+  });
 
 app.listen(port, () => {
     console.log(`Server is running on ${port}`);
