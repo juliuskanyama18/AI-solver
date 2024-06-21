@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   app.get('/courseList.html', (req, res) => {
     res.sendFile(path.join(__dirname,  'courseList.html'));
   });
-  app.get('/_Introduction to Limits.html', (req, res) => {
+  app.get('/_Introduction%20to%20Limits.html', (req, res) => {
     res.sendFile(path.join(__dirname, '_Introduction to Limits.html'));
   });
 
