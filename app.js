@@ -7,22 +7,25 @@ import { fileURLToPath } from 'url';
 
 const app=express();
 const port=3000;
+
+app.use(express.static("public"));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'home.html'));
+    res.render("home.ejs");
   });
-  app.get('/courseList.html', (req, res) => {
-    res.sendFile(path.join(__dirname,  'courseList.html'));
+  app.get('/courseList', (req, res) => {
+    res.render("courseList.ejs");
   });
-  app.get('/_Introduction%20to%20Limits.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '_Introduction to Limits.html'));
+  app.get('/_Introduction%20to%20Limits', (req, res) => {
+    res.render("_Introduction to Limits.ejs");
   });
-  app.get('/limitLaws.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'limitLaws.html'));
+  app.get('/limitLaws', (req, res) => {
+    res.render("limitLaws.ejs");
   });
 
 app.listen(port, () => {
