@@ -5498,17 +5498,18 @@
         </div>
       </div>
     </div>
-    <div class="chatbox-icon" id="chatbox-icon">💬</div>
-
-    <div class="chatbox-window" id="chatbox-window">
-      <form id="chatbox-form" method="post" action="/submit-question">
-        <textarea
-          name="question"
-          placeholder="How can I help you?"
-          required
-        ></textarea>
-        <button type="submit">Submit</button>
-      </form>
+    <div id="chat-icon" class="chat-icon">
+      <img src="imgs/chatBotIcon.png" width="100px" height="100px" />
+    </div>
+    <div id="chat-container" class="chat-container hidden">
+      <div class="chat-header">AI Step by Step Solver</div>
+      <div id="chat-messages" class="chat-messages"></div>
+      <textarea
+        id="chat-textarea"
+        rows="4"
+        placeholder="How can i help you....?"
+      ></textarea>
+      <button id="chat-submit" class="chat-submit">Submit</button>
     </div>
 
     <script src="jsScripts/introductionToLimits.js"></script>
