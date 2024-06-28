@@ -6,15 +6,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-    animation: gradientBackground 15s ease infinite;
+   background-color: #6F2036;
 }
 
-@keyframes gradientBackground {
-    0% { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
-    50% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-    100% { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
-}
+
 
 .container {
     text-align: center;
@@ -44,8 +39,8 @@ p {
     display: inline-block;
     padding: 0.75em 1.5em;
     font-size: 1.2em;
-    color: white;
-    background-color: #007BFF;
+    color: #6F204E;
+    background-color: white;
     border: none;
     border-radius: 25px;
     text-decoration: none;
@@ -53,6 +48,6 @@ p {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+   
     transform: scale(1.05);
 }

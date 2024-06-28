@@ -10,7 +10,7 @@ body {
   }
 
   header {
-    background-color: #4caf50;
+    background-color: #6F2036;
     color: white;
     text-align: center;
     padding: 1em 0;
@@ -38,7 +38,7 @@ body {
 
   .course-item h2 {
     margin-top: 0;
-    color: #4caf50;
+    color: #6F2036;
   }
 
   .course-item p {
@@ -57,7 +57,7 @@ body {
 
   .units li a {
     text-decoration: none;
-    color: #4caf50;
+    color: #6F2036;
     font-weight: bold;
   }
 
@@ -68,6 +68,6 @@ body {
   footer {
     text-align: center;
     padding: 1em 0;
-    background-color: #4caf50;
+    background-color: #6F2036;
     color: white;
   }
