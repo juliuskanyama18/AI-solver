@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
 app.use(session({
-    secret: 'your_secret_key',
+    secret: 'AITUTOR',// secret=AITUTOR
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false } // Use true in production with HTTPS
