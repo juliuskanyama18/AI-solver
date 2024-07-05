@@ -85,6 +85,7 @@ textarea {
   margin: 0 10px 10px 10px; /* Adjust margin to fit within the container */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   z-index: 1000; /* Ensure it's above other elements */
+  font-size: large;
 }
 
 .chat-submit {

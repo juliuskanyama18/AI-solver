@@ -44,8 +44,13 @@ const openai = new OpenAI({
 });
 
 app.post('/generate-response', async (req, res) => {
-    const prompt = req.body.prompt;
-    const instruction = "Let's solve this step by step together. Please help me understand each part by asking me questions and giving hints so I can learn as we go on.";
+    const { prompt, visibleContent } = req.body;
+    const instruction = "Let's solve this step by step together. For each question or topic I bring up, break it down into small, manageable steps. Ask me clarifying questions if needed, and give me hints and explanations at each step to help me understand but do not give answers instead ask me questions then i provide answers if i am wrong or right,tell me and give me the reasons and corrections with guidance.And do not go to the next step of solving the question without asking questions on the question i asked. Do not skip any steps or move on until I've confirmed that I understand. Always ensure I am following along before proceeding.";
+  
+
+    if (!visibleContent) {
+        return res.json({ reply: "Content not found on current screen. Please scroll to the relevant section." });
+    }
 
     // Initialize conversation history for the session if it doesn't exist
     if (!req.session.conversationHistory) {
@@ -53,13 +58,16 @@ app.post('/generate-response', async (req, res) => {
     }
 
     try {
-         // Combine the instruction with the user's prompt
-         const fullPrompt = `${instruction} ${prompt}`;
-         
+        // Combine the instruction, page content, and user's prompt
+        const fullPrompt = `${visibleContent}`+ `${instruction}` + `${prompt}`;
+        console.log(fullPrompt);
+        
+        const messages = req.session.conversationHistory.concat({ role: 'user', content: fullPrompt });
+        
         const response = await openai.chat.completions.create({
-            model: "gpt-4", // Use the desired OpenAI model
-            messages: req.session.conversationHistory.concat({ role: 'user', content: fullPrompt }),
-            max_tokens: 200
+            model: "gpt-3.5-turbo", // Use the desired OpenAI model
+            messages: messages,
+            max_tokens: 1000
         });
 
         const aiResponse = response.choices[0].message.content.trim();
